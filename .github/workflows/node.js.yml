@@ -21,7 +21,7 @@ jobs:
         working-directory: ./my-app
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -29,10 +29,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    # - name: Configure AWS Credentials
-    #   uses: aws-actions/configure-aws-credentials@v2
-    #   with:
-    #     role-to-assume: arn:aws:iam::507471600573:role/github-actions-role
-    #     aws-region: us-west-1
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::507471600573:role/github-actions-role
+        aws-region: us-west-1
     - run: npm i
     - run: npm run start
