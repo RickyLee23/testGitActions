@@ -35,4 +35,4 @@ jobs:
         role-to-assume: arn:aws:iam::507471600573:role/github-actions-role
         aws-region: us-west-1
     - run: npm i
-    - run: npm run start
+    - run: npm run build
